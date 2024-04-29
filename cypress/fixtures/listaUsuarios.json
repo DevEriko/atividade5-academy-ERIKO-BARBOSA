@@ -1,0 +1,44 @@
+[
+    {
+        "id": "c52dcbd2-4ae5-4994-ad0c-c36414469e7c",
+        "name": "Ériko",
+        "email": "eriko@qa.com.br",
+        "createdAt": "2024-04-28T21:08:45.884Z",
+        "updatedAt": "2024-04-28T21:08:45.884Z"
+    },
+    {
+        "id": "c52dcbd2-4ae5-4994-ad0c-c36414469e5c",
+        "name": "Camila",
+        "email": "camila@qa.com.br",
+        "createdAt": "2024-04-28T21:08:45.884Z",
+        "updatedAt": "2024-04-28T21:08:45.884Z"
+    },
+    {
+        "id": "c52dcbd2-4ae5-4994-ad0c-c36414469e4c",
+        "name": "João",
+        "email": "joao@qa.com.br",
+        "createdAt": "2024-04-28T21:08:45.884Z",
+        "updatedAt": "2024-04-28T21:08:45.884Z"
+    },
+    {
+        "id": "c52dcbd2-4ae5-4994-ad0c-c36414469e3c",
+        "name": "Pricsila",
+        "email": "pri@qa.com.br",
+        "createdAt": "2024-04-28T21:08:45.884Z",
+        "updatedAt": "2024-04-28T21:08:45.884Z"
+    },
+    {
+        "id": "c52dcbd2-4ae5-4994-ad0c-c36414469e2c",
+        "name": "Kaio",
+        "email": "kaio@qa.com.br",
+        "createdAt": "2024-04-28T21:08:45.884Z",
+        "updatedAt": "2024-04-28T21:08:45.884Z"
+    },
+    {
+        "id": "c52dcbd2-4ae5-4994-ad0c-c36414469e1c",
+        "name": "Bruno",
+        "email": "bruno@qa.com.br",
+        "createdAt": "2024-04-28T21:08:45.884Z",
+        "updatedAt": "2024-04-28T21:08:45.884Z"
+    }
+]
