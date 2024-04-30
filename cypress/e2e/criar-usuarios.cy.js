@@ -3,7 +3,7 @@ import CriarUsuarioPage from '../support/pages/criarUsuarios.pages';
 
 describe('Teste criação de usuários', function () {
     const paginaCriar = new CriarUsuarioPage();
-    beforeEach(function () {
+    beforeEach(function () { // Usamos a função beforeEach para que todos os nosso 'it' estejam recebendo a nossa visita no site.
         cy.visit('https://rarocrud-frontend-88984f6e4454.herokuapp.com/users');
     });
 
@@ -26,7 +26,7 @@ describe('Teste criação de usuários', function () {
 });
 
 describe('Teste que não possibilita a criação de usuários', function () {
-    const paginaCriar = new CriarUsuarioPage();
+    const paginaCriar = new CriarUsuarioPage(); // Usamos a função PageObject para diminuir a duplicidade de código e programar as interações que meu teste terá.
     beforeEach(function () {
         cy.visit('https://rarocrud-frontend-88984f6e4454.herokuapp.com/users');
     });

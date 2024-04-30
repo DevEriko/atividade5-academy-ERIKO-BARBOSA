@@ -6,13 +6,14 @@ describe('Teste lista de suários', function () {
   it('Deve ser possível verificar os usuários contidos na lista.', function () {
     cy.intercept('GET', 'api/v1/users', {
       statusCode: 200,
-      fixture: 'listaUsuarios.json'
+      fixture: 'listaUsuarios.json' // Aqui usamos a fixture para deixar nosso código mais limpo.
     }).as('listaDeUsuários')
     cy.get('#listaUsuarios').should('be.visible');
     cy.get('[data-test="userDataName"]').should('be.visible');
     cy.get('[data-test="userDataEmail"]').should('be.visible');
   });
 
+  // Usamos a função intercept para espionar nossa url da página em que verificamos o acerto da operação.
   it('Caso não existam usuários cadastrados deve existir uma opção para cadastrar um usuário.', function () {
     cy.intercept('GET', 'api/v1/users', { statusCode: 200, body: [] }).as('listaVazia');
     cy.get('h3').invoke('text').should('equal', 'Ops! Não existe nenhum usuário para ser exibido.');
