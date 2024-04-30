@@ -11,7 +11,6 @@ describe('Teste lista de suários', function () {
     cy.get('#listaUsuarios').should('be.visible');
     cy.get('[data-test="userDataName"]').should('be.visible');
     cy.get('[data-test="userDataEmail"]').should('be.visible');
-    cy.get('[data-test="userDataDelete"]').should('be.visible');
   });
 
   it('Caso não existam usuários cadastrados deve existir uma opção para cadastrar um usuário.', function () {

@@ -5,6 +5,7 @@ const email = faker.internet.email();
 
 describe('Teste para pesquisar usuários', function () {
 
+    // Aqui usamos o before para criarmos os usuários que pesquisaremos
     beforeEach(function () {
         cy.visit('https://rarocrud-frontend-88984f6e4454.herokuapp.com/users');
         cy.get('.sc-gEvEer').click();
@@ -14,6 +15,8 @@ describe('Teste para pesquisar usuários', function () {
         cy.get('.sc-gEvEer').click();
     });
 
+    // Aqui usamos para deletarmos os nossos usuários criados para não encher o banco de dados das nossas aplicações
+    // Será deletado após toda a operação que fizermos com o usuário ainda cadastrado.
     afterEach(function () {
         cy.get('.sc-eqUAAy').click();
         cy.get('.sc-gsFSXq').clear().type(email)
@@ -31,8 +34,8 @@ describe('Teste para pesquisar usuários', function () {
 
     it('Deve ser possível pesquisar um usuário por email', function () {
         cy.get('.sc-gsFSXq').type(email).click();
-        cy.get('[data-test="userDataEmail"]').should("contain.text", "E-mail: ", email);
         cy.get('#userData').should('be.visible');
+        cy.get('[data-test="userDataEmail"]').should("contain.text", "E-mail: ", email);
         cy.url().should('equal', 'https://rarocrud-frontend-88984f6e4454.herokuapp.com/users');
     });
 
