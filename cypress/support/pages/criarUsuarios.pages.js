@@ -17,10 +17,6 @@ export default class CriarUsuarioPage {
         cy.get(this.buttonSalvar).click();
     }
 
-    clickButtonVoltar() {
-        cy.get(this.linkVoltar).click();
-    }
-
     cadastrar(nome, email) {
         this.typeNome(nome);
         this.typeEmail(email);

@@ -3,12 +3,15 @@ describe('Teste lista de suários', function () {
     cy.visit('https://rarocrud-frontend-88984f6e4454.herokuapp.com/users');
   })
 
-  it('Deve ser possível verificar os usuários contidos na lista após a consulta.', function () {
+  it('Deve ser possível verificar os usuários contidos na lista.', function () {
     cy.intercept('GET', 'api/v1/users', {
       statusCode: 200,
       fixture: 'listaUsuarios.json'
-    }).as('usuariosDaLista')
+    }).as('listaDeUsuários')
     cy.get('#listaUsuarios').should('be.visible');
+    cy.get('[data-test="userDataName"]').should('be.visible');
+    cy.get('[data-test="userDataEmail"]').should('be.visible');
+    cy.get('[data-test="userDataDelete"]').should('be.visible');
   });
 
   it('Caso não existam usuários cadastrados deve existir uma opção para cadastrar um usuário.', function () {
