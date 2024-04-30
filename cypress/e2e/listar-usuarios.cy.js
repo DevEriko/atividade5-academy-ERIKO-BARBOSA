@@ -1,7 +1,7 @@
 describe('Teste lista de suários', function () {
   beforeEach(function () {
     cy.visit('https://rarocrud-frontend-88984f6e4454.herokuapp.com/users');
-  })
+  });
 
   it('Deve ser possível verificar os usuários contidos na lista.', function () {
     cy.intercept('GET', 'api/v1/users', {
