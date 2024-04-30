@@ -1,5 +1,7 @@
 import { faker } from '@faker-js/faker';
+import CriarUsuarioPage from '../support/pages/criarUsuarios.pages';
 describe('Teste de criação de usuários', function () {
+    const paginaCriar = new CriarUsuarioPage();
     beforeEach(function () {
         cy.visit('https://rarocrud-frontend-88984f6e4454.herokuapp.com/users');
     });
@@ -8,20 +10,20 @@ describe('Teste de criação de usuários', function () {
         const nome = faker.person.firstName();
         const email = faker.internet.email();
         cy.get('.sc-gEvEer').click();
-        cy.get('#name').type(nome);
+        paginaCriar.typeNome(nome);
         cy.get('#name').invoke('val').should('equal', nome);
-        cy.get('#email').type(email);
+        paginaCriar.typeEmail(email);
         cy.get('#email').invoke('val').should('equal', email);
-        cy.contains('button', 'Salvar').click();
+        paginaCriar.clickButtonSalvar();
         cy.url().should('equal', 'https://rarocrud-frontend-88984f6e4454.herokuapp.com/users/novo');
     });
 
     it('Não deve ser possível criar um usuário com e-mail inválido.', function () {
         cy.get('.sc-gEvEer').click();
-        cy.get('#name').type('Ériko');
-        cy.get('#email').type('nome.com');
+        paginaCriar.typeNome('Ériko');
+        paginaCriar.typeEmail('nome.com');
         cy.get('#email').invoke('val').should('equal', 'nome.com');
-        cy.contains('button', 'Salvar').click();
+        paginaCriar.clickButtonSalvar();
         cy.contains('Formato de e-mail inválido').should('be.visible');
         cy.url().should('equal', 'https://rarocrud-frontend-88984f6e4454.herokuapp.com/users/novo');
     });
@@ -30,10 +32,10 @@ describe('Teste de criação de usuários', function () {
         cy.intercept('POST', 'api/v1/users', { statusCode: 422, fixture: 'erroUsuarioExist.json' }).as('postUser');
 
         cy.get('.sc-gEvEer').click();
-        cy.get('#name').type('Eriko');
-        cy.get('#email').type('eriko@qa.com.br');
+        paginaCriar.typeNome('Eriko');
+        paginaCriar.typeEmail('eriko@qa.com.br');
 
-        cy.contains('button', 'Salvar').click();
+        paginaCriar.clickButtonSalvar();
         cy.wait('@postUser');
         cy.contains('Este e-mail já é utilizado por outro usuário.').should('be.visible');
         cy.url().should('equal', 'https://rarocrud-frontend-88984f6e4454.herokuapp.com/users/novo');
@@ -41,25 +43,22 @@ describe('Teste de criação de usuários', function () {
     });
 
     it('Não deve ser possível cadastrar um nome com mais de 100 caracteres.', function () {
-        const nome = Cypress._.repeat('Nome Usuário', 11)
+        const nome = Cypress._.repeat('hahahahahaha', 11)
         cy.get('.sc-gEvEer').click();
-        cy.get('#name').type(nome);
-        cy.get('#email').type('erikao@qa.com.br');
-        cy.contains('button', 'Salvar').click();
+        paginaCriar.typeNome(nome);
+        paginaCriar.typeEmail('erikao@qa.com.br');
+        paginaCriar.clickButtonSalvar();
         cy.url().should('equal', 'https://rarocrud-frontend-88984f6e4454.herokuapp.com/users/novo');
-
         cy.get('.sc-cPiKLX').contains('Informe no máximo 100 caracteres para o nome').should('be.visible');
     });
 
     it('Não deve ser possível cadastrar um e-mail com mais de 60 caracteres.', function () {
         const email = Cypress._.repeat('ha', 40);
-
         cy.get('.sc-gEvEer').click();
-        cy.get('#name').type('UsuárioNovo');
-        cy.get('#email').type(email + '@qa.com');
-        cy.contains('button', 'Salvar').click();
+        paginaCriar.typeNome('UsuárioNovo');
+        paginaCriar.typeEmail(email + '@qa.com');
+        paginaCriar.clickButtonSalvar();
         cy.url().should('equal', 'https://rarocrud-frontend-88984f6e4454.herokuapp.com/users/novo');
-
         cy.get('.sc-cPiKLX').contains('Informe no máximo 60 caracteres para o e-mail').should('be.visible');
     });
 });

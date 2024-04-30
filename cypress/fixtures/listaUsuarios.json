@@ -40,5 +40,47 @@
         "email": "bruno@qa.com.br",
         "createdAt": "2024-04-28T21:08:45.884Z",
         "updatedAt": "2024-04-28T21:08:45.884Z"
+    },
+    {
+        "id": "c52dcbd2-4ae5-4994-ad0c-c36414469e7c",
+        "name": "Thales",
+        "email": "thales@qa.com.br",
+        "createdAt": "2024-04-28T21:08:45.884Z",
+        "updatedAt": "2024-04-28T21:08:45.884Z"
+    },
+    {
+        "id": "c52dcbd2-4ae5-4994-ad0c-c36414469e5c",
+        "name": "Cristiane",
+        "email": "cris@qa.com.br",
+        "createdAt": "2024-04-28T21:08:45.884Z",
+        "updatedAt": "2024-04-28T21:08:45.884Z"
+    },
+    {
+        "id": "c52dcbd2-4ae5-4994-ad0c-c36414469e4c",
+        "name": "Pedro",
+        "email": "pedro@qa.com.br",
+        "createdAt": "2024-04-28T21:08:45.884Z",
+        "updatedAt": "2024-04-28T21:08:45.884Z"
+    },
+    {
+        "id": "c52dcbd2-4ae5-4994-ad0c-c36414469e3c",
+        "name": "Luma",
+        "email": "lm@qa.com.br",
+        "createdAt": "2024-04-28T21:08:45.884Z",
+        "updatedAt": "2024-04-28T21:08:45.884Z"
+    },
+    {
+        "id": "c52dcbd2-4ae5-4994-ad0c-c36414469e2c",
+        "name": "Cintia",
+        "email": "cintia@qa.com.br",
+        "createdAt": "2024-04-28T21:08:45.884Z",
+        "updatedAt": "2024-04-28T21:08:45.884Z"
+    },
+    {
+        "id": "c52dcbd2-4ae5-4994-ad0c-c36414469e1c",
+        "name": "Bruna",
+        "email": "bruna@qa.com.br",
+        "createdAt": "2024-04-28T21:08:45.884Z",
+        "updatedAt": "2024-04-28T21:08:45.884Z"
     }
 ]
